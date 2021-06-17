@@ -5,7 +5,8 @@ import { dispatchWrapper } from "redux/reducers/signupReducer";
 import { useDispatch, useSelector } from "react-redux";
 import { SIGNUP_CONSTANTS } from "redux/actions/signupActions/actionTypes";
 import { Redirect } from "react-router-dom";
-const SignupContainer = ( ) => {
+import LoadingComponent from "components/LoadingComponent";
+const SignupContainer = () => {
   const signupState = useSelector((state) => state.signup);
   const dispatch = useDispatch();
   const {
@@ -21,6 +22,7 @@ const SignupContainer = ( ) => {
     userNameError,
     acceptedTermsError,
     user_data,
+    loading
   } = signupState;
 
   const handleEmailChange = (e) => {
@@ -106,6 +108,10 @@ const SignupContainer = ( ) => {
 
   if (user_data?.auth_token) {
     return <Redirect to="/login" />;
+  }
+
+  if (loading) {
+    return <LoadingComponent />;
   }
 
   return (

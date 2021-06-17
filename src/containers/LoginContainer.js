@@ -11,6 +11,7 @@ import {
   changePasswordErrorAction,
 } from "redux/actions/loginActions/actions";
 import { LOGIN_CONSTANTS } from "redux/actions/loginActions/actionTypes";
+import LoadingComponent from "components/LoadingComponent";
 
 function LoginContainer() {
   const loginState = useSelector((state) => state.login);
@@ -21,6 +22,7 @@ function LoginContainer() {
     passwordError,
     loginError,
     user_data,
+    loading,
   } = loginState;
   const dispatch = useDispatch();
 
@@ -75,6 +77,10 @@ function LoginContainer() {
   };
   if (user_data?.auth_token) {
     return <Redirect to="/dashboard" />;
+  }
+
+  if (loading) {
+    return <LoadingComponent />;
   }
   return (
     <div>
