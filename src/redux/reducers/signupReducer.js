@@ -13,7 +13,7 @@ export const initialState = {
   acceptedTermsError: "",
   user_data: null,
   signupError: "",
-  loading: true,
+  loading: false,
 };
 
 export const signupReducer = (state = initialState, action) => {

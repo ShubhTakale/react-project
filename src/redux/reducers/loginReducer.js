@@ -7,7 +7,7 @@ const initialState = {
   passwordError: "",
   loginError: "",
   user_data: null,
-  loading: true,
+  loading: false,
 };
 
 export const loginReducer = (state = initialState, action) => {
