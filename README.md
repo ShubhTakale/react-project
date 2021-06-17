@@ -1,0 +1,1 @@
+This is a simple react application having login, signup, dashboard and details pages
